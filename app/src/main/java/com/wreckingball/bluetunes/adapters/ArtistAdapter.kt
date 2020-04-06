@@ -4,9 +4,11 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.wreckingball.bluetunes.R
 import com.wreckingball.bluetunes.models.Artist
+import com.wreckingball.bluetunes.ui.home.HomeFragmentDirections
 import kotlinx.android.synthetic.main.item_artist.view.*
 
 class ArtistAdapter(
@@ -21,6 +23,11 @@ class ArtistAdapter(
                 itemView.artistPic.setImageResource(R.drawable.generic_band)
             } else {
                 itemView.artistPic.setImageBitmap(item.image)
+            }
+
+            itemView.setOnClickListener {
+                val action = HomeFragmentDirections.actionHomeFragmentToAlbumFragment(item.name)
+                itemView.findNavController().navigate(action)
             }
         }
     }

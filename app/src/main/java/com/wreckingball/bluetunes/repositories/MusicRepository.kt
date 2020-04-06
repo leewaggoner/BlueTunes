@@ -23,7 +23,7 @@ class MusicRepository {
             cursor?.let {
                 while (cursor.moveToNext()) {
                     val name = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST))
-                    addArtist(artistList, name)
+                    addArtist(name)
                 }
                 artistList.sortBy { artist ->  artist.name }
                 artists.value = artistList
@@ -31,8 +31,8 @@ class MusicRepository {
         }
     }
 
-    fun addArtist(list: List<Artist>, name: String) {
-        for(artist in list) {
+    fun addArtist(name: String) {
+        for(artist in artistList) {
             if (artist.name.equals(name, true)) {
                 return
             }

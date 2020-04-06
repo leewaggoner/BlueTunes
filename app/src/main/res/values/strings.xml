@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">BlueTunes</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="blue_tunes">Blue Tunes</string>
+    <string name="artists">Artists</string>
+    <string name="albums">Albums</string>
 </resources>

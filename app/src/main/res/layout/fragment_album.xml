@@ -30,12 +30,13 @@
                 android:textSize="42sp"
                 android:textStyle="bold" />
             <TextView
+                android:id="@+id/artistName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/artists"
                 android:textColor="@color/white"
                 android:textSize="28sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="Cocteau Twins"/>
         </LinearLayout>
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="100dp"
@@ -45,10 +46,10 @@
             android:src="@drawable/logo" />
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewArtist"
+        android:id="@+id/recyclerViewAlbum"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layoutManager="GridLayoutManager"
         tools:itemCount="20"
-        tools:listitem="@layout/item_artist" />
+        tools:listitem="@layout/item_album" />
 </LinearLayout>

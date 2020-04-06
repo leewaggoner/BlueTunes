@@ -14,7 +14,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
  * A simple [Fragment] subclass.
  */
 class HomeFragment : Fragment(R.layout.fragment_home) {
-    val model: HomeViewModel by viewModel()
+    private val model: HomeViewModel by viewModel()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

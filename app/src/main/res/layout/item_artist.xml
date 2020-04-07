@@ -5,6 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="80dp"
     android:padding="8dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
     android:orientation="horizontal">
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/artistPic"

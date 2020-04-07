@@ -42,7 +42,7 @@ class AlbumRepository {
         val length = calcLength(songLength)
         for (album in albumList) {
             if (album.id == id) {
-                album.songs?.add(Song(songName, length, songId))
+                album.children?.add(Song(songName, length, songId))
                 return
             }
         }
@@ -50,7 +50,7 @@ class AlbumRepository {
         val sArtworkUri: Uri = Uri.parse("content://media/external/audio/albumart")
         val imageUri: Uri = Uri.withAppendedPath(sArtworkUri, java.lang.String.valueOf(id))
 
-        albumList.add(Album(id, name, mutableListOf(Song(songName, length, songId)), imageUri))
+        albumList.add(Album(id, name, imageUri, mutableListOf(Song(songName, length, songId))))
     }
 
     private fun calcLength(length: Long) : String {

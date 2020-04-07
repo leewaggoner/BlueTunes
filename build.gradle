@@ -28,3 +28,9 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+    //Recycler View Expanding Adapter Library Info
+    libVersionCode = 1
+    libVersionName = '1.0.0'
+}

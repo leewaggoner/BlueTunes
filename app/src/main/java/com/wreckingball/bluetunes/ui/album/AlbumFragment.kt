@@ -7,7 +7,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import com.wreckingball.bluetunes.R
-import com.wreckingball.bluetunes.adapters.AlbumAdapter
+import com.wreckingball.bluetunes.adapters.AlbumExpandingViewHandler
+import com.wreckingball.recyclerviewexpandingadapter.RecyclerViewExpandingAdapter
 import kotlinx.android.synthetic.main.fragment_album.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -20,7 +21,9 @@ class AlbumFragment : Fragment(R.layout.fragment_album) {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        model.getAlbums(requireContext(), args.artistName)
+        if (model.albums.value == null) {
+            model.getAlbums(requireContext(), args.artistName)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -29,7 +32,12 @@ class AlbumFragment : Fragment(R.layout.fragment_album) {
         artistName.text = args.artistName
 
         model.albums.observe(viewLifecycleOwner, Observer { albums ->
-            recyclerViewAlbum.adapter = AlbumAdapter(albums, requireContext())
+            recyclerViewAlbum.adapter = RecyclerViewExpandingAdapter(
+                requireContext(),
+                albums,
+                R.layout.item_album,
+                R.layout.item_song,
+                AlbumExpandingViewHandler())
         })
     }
 }

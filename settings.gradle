@@ -1,2 +1,3 @@
 rootProject.name='BlueTunes'
 include ':app'
+include ':recyclerviewexpandingadapter'

@@ -42,7 +42,7 @@ class AlbumRepository {
         val length = calcLength(songLength)
         for (album in albumList) {
             if (album.id == id) {
-                album.children?.add(Song(songName, length, songId))
+                album.childList?.add(Song(songName, length, songId))
                 return
             }
         }

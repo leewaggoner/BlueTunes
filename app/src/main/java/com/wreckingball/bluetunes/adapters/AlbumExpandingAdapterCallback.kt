@@ -5,13 +5,11 @@ import com.squareup.picasso.Picasso
 import com.wreckingball.bluetunes.R
 import com.wreckingball.bluetunes.models.Album
 import com.wreckingball.bluetunes.models.Song
-import com.wreckingball.recyclerviewexpandingadapter.ExpandingData
-import com.wreckingball.recyclerviewexpandingadapter.ExpandingViewHandler
 import kotlinx.android.synthetic.main.item_album.view.*
 import kotlinx.android.synthetic.main.item_song.view.*
 
-class AlbumExpandingViewHandler : ExpandingViewHandler {
-    override fun handleParentView(itemView: View, item: ExpandingData) {
+class AlbumExpandingAdapterCallback : ExpandingAdapterCallback {
+    override fun onBindParentView(itemView: View, item: ExpandingData) {
         val album = item as Album
 
         itemView.tag = album.name
@@ -38,13 +36,13 @@ class AlbumExpandingViewHandler : ExpandingViewHandler {
         itemView.arrow.setImageResource(R.drawable.down)
     }
 
-    override fun handleChildView(itemView: View, item: ExpandingData) {
+    override fun onBindChildView(itemView: View, item: ExpandingData) {
         val song = item as Song
         itemView.songName.text = song.name
         itemView.songLength.text = song.length
     }
 
-    override fun handleChildClick(item: ExpandingData) {
+    override fun onChildClick(itemView: View, item: ExpandingData) {
         //play song
     }
 }

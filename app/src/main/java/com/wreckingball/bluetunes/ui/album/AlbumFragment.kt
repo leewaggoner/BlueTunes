@@ -7,8 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import com.wreckingball.bluetunes.R
-import com.wreckingball.bluetunes.adapters.AlbumExpandingViewHandler
-import com.wreckingball.recyclerviewexpandingadapter.RecyclerViewExpandingAdapter
+import com.wreckingball.bluetunes.adapters.AlbumExpandingAdapterCallback
 import kotlinx.android.synthetic.main.fragment_album.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -37,7 +36,8 @@ class AlbumFragment : Fragment(R.layout.fragment_album) {
                 albums,
                 R.layout.item_album,
                 R.layout.item_song,
-                AlbumExpandingViewHandler())
+                AlbumExpandingAdapterCallback()
+            )
         })
     }
 }

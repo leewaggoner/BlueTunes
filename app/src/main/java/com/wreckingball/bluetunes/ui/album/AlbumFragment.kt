@@ -8,6 +8,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import com.wreckingball.bluetunes.R
 import com.wreckingball.bluetunes.adapters.AlbumExpandingAdapterCallback
+import com.wreckingball.recyclerviewexpandingadapter.RecyclerViewExpandingAdapter
 import kotlinx.android.synthetic.main.fragment_album.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

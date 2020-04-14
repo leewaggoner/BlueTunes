@@ -1,6 +1,7 @@
 package com.wreckingball.bluetunes.models
 
 import android.net.Uri
+import com.wreckingball.recyclerviewexpandingadapter.ExpandingData
 
 class Album (
     var id: Int,

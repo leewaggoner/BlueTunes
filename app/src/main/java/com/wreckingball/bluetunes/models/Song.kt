@@ -3,6 +3,7 @@ package com.wreckingball.bluetunes.models
 import android.content.ContentUris
 import android.net.Uri
 import android.provider.MediaStore
+import com.wreckingball.recyclerviewexpandingadapter.ExpandingData
 
 class Song (
     var name: String,

@@ -5,6 +5,8 @@ import com.squareup.picasso.Picasso
 import com.wreckingball.bluetunes.R
 import com.wreckingball.bluetunes.models.Album
 import com.wreckingball.bluetunes.models.Song
+import com.wreckingball.recyclerviewexpandingadapter.ExpandingAdapterCallback
+import com.wreckingball.recyclerviewexpandingadapter.ExpandingData
 import kotlinx.android.synthetic.main.item_album.view.*
 import kotlinx.android.synthetic.main.item_song.view.*
 

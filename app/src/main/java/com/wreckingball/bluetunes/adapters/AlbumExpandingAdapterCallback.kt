@@ -14,8 +14,6 @@ class AlbumExpandingAdapterCallback : ExpandingAdapterCallback {
     override fun onBindParentView(itemView: View, item: ExpandingData) {
         val album = item as Album
 
-        itemView.tag = album.name
-
         itemView.albumName.text = album.name
 
         if (album.albumArt == null) {
@@ -25,6 +23,12 @@ class AlbumExpandingAdapterCallback : ExpandingAdapterCallback {
             picasso.load(album.albumArt)
                 .placeholder(R.drawable.cocteau_twins_heaven_or_las_vegas)
                 .into(itemView.albumArt)
+        }
+
+        if (item.isExpanded) {
+            itemView.arrow.setImageResource(R.drawable.up)
+        } else {
+            itemView.arrow.setImageResource(R.drawable.down)
         }
     }
 

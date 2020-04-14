@@ -1,3 +1,2 @@
 rootProject.name='BlueTunes'
-include ':app', ':recyclerviewexpandingadapter'
-project(':recyclerviewexpandingadapter').projectDir = new File(settingsDir, '../RecyclerViewExpandingAdapterLib/recyclerviewexpandingadapter')
+include ':app'

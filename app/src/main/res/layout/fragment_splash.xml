@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="48dp"
+    android:background="@drawable/splash"
+    tools:context=".ui.splash.SplashFragment">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="72sp"
+        android:text="@string/blue_tunes" />
+    <ProgressBar
+        android:id="@+id/progressBarSplash"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="94dp"
+        android:layout_height="94dp"
+        android:layout_gravity="center"
+        android:visibility="visible"
+        android:contentDescription="@string/loading"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

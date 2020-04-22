@@ -1,16 +1,21 @@
-package com.wreckingball.bluetunes.adapters
+package com.wreckingball.bluetunes.callbacks
 
 import android.view.View
 import com.squareup.picasso.Picasso
 import com.wreckingball.bluetunes.R
+import com.wreckingball.bluetunes.components.MusicPlayer
 import com.wreckingball.bluetunes.models.Album
 import com.wreckingball.bluetunes.models.Song
 import com.wreckingball.recyclerviewexpandingadapter.ExpandingAdapterCallback
 import com.wreckingball.recyclerviewexpandingadapter.ExpandingData
 import kotlinx.android.synthetic.main.item_album.view.*
 import kotlinx.android.synthetic.main.item_song.view.*
+import org.koin.core.KoinComponent
+import org.koin.core.inject
 
-class AlbumExpandingAdapterCallback : ExpandingAdapterCallback {
+class AlbumExpandingAdapterCallback(private val fragmentCallback: FragmentCallback) : ExpandingAdapterCallback, KoinComponent {
+    val musicPlayer: MusicPlayer by inject()
+
     override fun onBindParentView(itemView: View, item: ExpandingData) {
         val album = item as Album
 
@@ -33,12 +38,10 @@ class AlbumExpandingAdapterCallback : ExpandingAdapterCallback {
     }
 
     override fun onParentExpand(itemView: View) {
-        val tag = itemView.tag
         itemView.arrow.setImageResource(R.drawable.up)
     }
 
     override fun onParentCollapse(itemView: View) {
-        val tag = itemView.tag
         itemView.arrow.setImageResource(R.drawable.down)
     }
 
@@ -49,6 +52,14 @@ class AlbumExpandingAdapterCallback : ExpandingAdapterCallback {
     }
 
     override fun onChildClick(itemView: View, item: ExpandingData) {
-        //play song
+        if (item is Song) {
+            if (!musicPlayer.isPlaying()) {
+                musicPlayer.playSong(itemView.context, item)
+                fragmentCallback.showMusicControlBar(true)
+            } else {
+                musicPlayer.stopSong()
+                fragmentCallback.showMusicControlBar(false)
+            }
+        }
     }
 }

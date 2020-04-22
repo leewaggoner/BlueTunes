@@ -2,6 +2,7 @@ package com.wreckingball.bluetunes.ui.home
 
 import android.content.Context
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -25,6 +26,17 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         super.onViewCreated(view, savedInstanceState)
         model.artists.observe(viewLifecycleOwner, Observer { artists ->
             recyclerViewArtist.adapter = ArtistAdapter(artists, requireContext())
+        })
+
+        this.view?.isFocusableInTouchMode = true;
+        this.view?.requestFocus();
+        this.view?.setOnKeyListener(View.OnKeyListener { _, keyCode, event ->
+            if (event.action == KeyEvent.ACTION_DOWN) {
+                if (keyCode == KeyEvent.KEYCODE_BACK) {
+                    requireActivity().finish()
+                }
+            }
+            false
         })
     }
 }

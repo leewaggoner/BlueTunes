@@ -5,4 +5,12 @@
     <string name="artists">Artists</string>
     <string name="albums">Albums</string>
     <string name="contentDescription">Image</string>
+    <string name="loading">Loading</string>
+    <string name="bt_not_supported">This device does not support Bluetooth!</string>
+    <string name="bt_not_enabled">Could not enable Bluetooth!</string>
+    <string name="unknown_error">Unknown error!</string>
+    <string name="pair_device_title">Pair Your Device</string>
+    <string name="pair_device">Please pair your device and then return to this app.</string>
+    <string name="turn_on_device_title">Turn On Device</string>
+    <string name="turn_on_device">Please turn on a Bluetooth audio device.</string>
 </resources>
